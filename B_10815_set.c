@@ -36,35 +36,34 @@ int main(void)
 	for (int i = 0; i < m; i++)
 	{
 		int pivot = n / 2;
-		int before_pivot;
-		int checker = 1;
+		int before_pivot1 = n;
+		int	before_pivot2 = 0;
+		int	checker = 0;
+		int	tmp = pivot;
 		for (int j = 0; j < l + 1; j++)
 		{
-			printf("pivot : %d \n",pivot);
-			int tmp = arr[pivot];
-			if (arr2[i] > tmp && checker)
-				before_pivot = n;
-			else if (arr2[i] < tmp && checker == 0)
-				before_pivot = 0;
-			else
-				before_pivot = pivot;
-
-			if (arr2[i] > tmp)
+			if (arr2[i] > arr[pivot])
 			{
-				checker = 1;
-				pivot = (pivot + before_pivot) / 2;
+				if (checker == 1)
+					before_pivot1 = tmp;
+				tmp = pivot;
+				pivot = ((pivot + before_pivot1) / 2);
+				checker = 2;
 			}
-			else if (arr2[i] < tmp)
+			else if (arr2[i] < arr[pivot])
 			{
-				checker = 0;
-				pivot = (pivot + before_pivot) / 2;
+				if (checker == 2)
+					before_pivot2 = tmp;
+				tmp = pivot;
+				pivot = ((pivot + before_pivot2) / 2);
+				checker = 1;
 			}
 			else
 			{
 				printf("1 ");
 				break ;
 			}
-			if (j == l || pivot < 0 || pivot > n - 1)
+			if (j == l)
 			{
 				printf("0 ");
 				break ;
