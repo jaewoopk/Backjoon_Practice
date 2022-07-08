@@ -4,7 +4,6 @@ def BinarySearch(arr, check, start, end, point) :
     while (start <= end) :
         mid = (start + end) // 2
         if (arr[mid] == check[point]) :
-            print("ok")
             return 1
         elif (arr[mid] < check[point]) :
             start = mid + 1
