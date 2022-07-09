@@ -26,11 +26,11 @@ book = {}
 check = []
 
 for i in range(n) :
-    poketmon = input()
+    poketmon = sys.stdin.readline()
     book.setdefault(poketmon,i)
 
 for i in range(m) :
-    check.append(input())
+    check.append(sys.stdin.readline())
 
 realbook = list(book.keys())
 poketbook = dict(sorted(book.items()))
