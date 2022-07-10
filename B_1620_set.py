@@ -14,15 +14,13 @@ book = {}
 check = []
 
 for i in range(n) :
-<<<<<<< HEAD
-    book.setdefault(input(),i)
-=======
-    poketmon = sys.stdin.readline()
-    book.setdefault(poketmon,i)
->>>>>>> e7f5350788adca837b69d2454ec712f64551a356
+    book.setdefault(sys.stdin.readline().strip(),i)
 
 for i in range(m) :
-    check.append(sys.stdin.readline())
+    check.append(sys.stdin.readline().strip())
+
+print(book)
+print(check)
 
 realbook = list(book.keys())
 
