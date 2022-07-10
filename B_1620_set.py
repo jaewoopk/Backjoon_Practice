@@ -19,9 +19,6 @@ for i in range(n) :
 for i in range(m) :
     check.append(sys.stdin.readline().strip())
 
-print(book)
-print(check)
-
 realbook = list(book.keys())
 
 for i in range(m) :
