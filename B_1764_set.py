@@ -8,3 +8,5 @@ for i in range(n) :
 print("%d"%n)
 
 print("%f",0.3)
+
+print("how to use : %d",n)
