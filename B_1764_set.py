@@ -12,3 +12,5 @@ print("%f",0.3)
 print("how to use : %d",n)
 
 print("To make possibility : %d"%n)
+
+print("When 42 Done, start fisrt:")
