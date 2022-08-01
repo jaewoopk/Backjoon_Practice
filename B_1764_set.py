@@ -1,18 +1,14 @@
 import sys
 
-n = sys.stdin.readline()
+a = []
+b = []
+
+n, m = map(int, input().split())
 
 for i in range(n) :
-    temp = sys.stdin.readline.strip()
+    a.append(sys.stdin.readline.strip())
 
-print("%d"%n)
+for i in range(m) :
+    b.append(sys.stdin.readline.strip())
 
-print("%f",0.3)
-
-print("how to use : %d",n)
-
-print("To make possibility : %d"%n)
-
-print("When 42 Done, start fisrt:")
-
-print("start from 8/1")
+print(a)
