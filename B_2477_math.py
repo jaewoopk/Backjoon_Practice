@@ -2,32 +2,37 @@ k = int(input())
 
 a = []
 b = []
+b2 = []
 c = []
 count = 6
 for i in range(count) :
     a.append(input().split())
     
 for i in range(count) :
-    for j in range(i + 1, count) :
-        if (a[i][0] == a[j][0] and int(a[i][1]) < int(a[j][1])) :
+    for j in range(count) :
+        if (i != j and a[i][0] == a[j][0] and int(a[i][1]) < int(a[j][1])) :
             b.append(a[i])
             break
 
-        elif (a[i][0] == a[j][0] and int(a[i][1]) >= int(a[j][1])) :
-            b.append(a[j])
+        elif (i != j and a[i][0] == a[j][0] and int(a[i][1]) >= int(a[j][1])) :
+            b2.append(a[i])
             break
-
 
 for i in range(6) :
     if (a[i][0] != b[0][0] and a[i][0] != b[1][0]) :
         c.append(a[i])
-        
-print(a)
-print(b)
-print(c)
-tmp = int(c[0][1]) * int(c[1][1]) - int(b[0][1]) * int(b[1][1])
 
-print(tmp * k)
+b_res = int(b[0][1]) * int(b[1][1])
+b2_res = int(b2[0][1]) * int(b2[1][1])
+c_res = int(c[0][1]) * int(c[1][1])
+
+if ((b[0][0] == '1' and b[1][0] == '3') \
+    or (b[0][0] == '4' and b[1][0] == '1') \
+    or (b[0][0] == '3' and b[1][0] == '2') \
+    or (b[0][0] == '2' and b[1][0] == '4')) :
+        print(k * (c_res - b_res))
+else :
+    print(k * (c_res - b2_res))
 
 '''
 for i in range(5) :
