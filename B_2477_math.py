@@ -51,6 +51,8 @@ elif (((b2[0][0] == '1' and b2[1][0] == '3') \
     or (b2[0][0] == '2' and b2[1][0] == '4'))) :
     print(k * (c_res - b2_res))
 
+# how to solve it
+
 '''
 for i in range(5) :
     if (a[i][0] == '4' and a[i + 1][0] == '1') :
