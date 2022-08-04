@@ -26,20 +26,22 @@ b_res = int(b[0][1]) * int(b[1][1])
 b2_res = int(b2[0][1]) * int(b2[1][1])
 c_res = int(c[0][1]) * int(c[1][1])
 
-if (b[0][1] == a[0][1] and b[1][1] == a[5][1]) :
+print(b)
+print(b2)
+print(c)
+
+if (b[0][1] == a[0][1] and b[1][1] == a[1][1]) :
+    print(k * (c_res - b_res))
+elif (b2[0][1] == a[0][1] and b2[1][1] == a[1][1]) :
+    print(k * (c_res - b2_res))
+elif (b[0][1] == a[0][1] and b[1][1] == a[5][1]) :
     print(k * (c_res - b_res))
 elif (b2[0][1] == a[0][1] and b2[1][1] == a[5][1]) :
     print(k * (c_res - b2_res))
-elif (b[0][0] == b2[0][0] and b[0][1] == a[0][1] \
-    and b[1][1] == a[1][1]) :
-    print(k * (c_res - b_res))
-elif (b[0][0] == b2[0][0] and b2[0][1] == a[0][1] \
-    and b2[1][1] == a[1][1]) :
+elif (b[0][1] == a[0][1] and b2[1][1] == a[5][1]) :
     print(k * (c_res - b2_res))
-elif (b[0][0] == b2[0][0] and b[1][1] == a[5][1]) :
+elif (b2[0][1] == a[0][1] and b[1][1] == a[5][1]) :
     print(k * (c_res - b_res))
-elif (b[0][0] == b2[0][0] and b2[1][1] == a[5][1]) :
-    print(k * (c_res - b2_res))
 elif (((b[0][0] == '1' and b[1][0] == '3') \
     or (b[0][0] == '4' and b[1][0] == '1') \
     or (b[0][0] == '3' and b[1][0] == '2') \
