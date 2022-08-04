@@ -5,6 +5,7 @@ b = []
 b2 = []
 c = []
 count = 6
+t = 1
 for i in range(count) :
     a.append(input().split())
     
@@ -14,8 +15,15 @@ for i in range(count) :
             b.append(a[i])
             break
 
-        elif (i != j and a[i][0] == a[j][0] and int(a[i][1]) >= int(a[j][1])) :
+        elif (i != j and a[i][0] == a[j][0] and int(a[i][1]) > int(a[j][1])) :
             b2.append(a[i])
+            break
+        elif (i != j and a[i][0] == a[j][0] and int(a[i][1]) == int(a[j][1])) :
+            if (t == 1) :
+                t = 0
+                b.append(a[i])
+                b2.append(a[i])
+                break
             break
 
 for i in range(6) :
@@ -30,7 +38,9 @@ print(b)
 print(b2)
 print(c)
 
-if (b[0][1] == a[0][1] and b[1][1] == a[1][1]) :
+if (b == b2) :
+    print(k * (c_res - b_res))
+elif (b[0][1] == a[0][1] and b[1][1] == a[1][1]) :
     print(k * (c_res - b_res))
 elif (b2[0][1] == a[0][1] and b2[1][1] == a[1][1]) :
     print(k * (c_res - b2_res))
