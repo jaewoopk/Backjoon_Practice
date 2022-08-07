@@ -11,6 +11,7 @@ public class B_2981_comb {
         for (int i = 0; i < n; i++) {
             arr.add(sc.nextLong());
         }
+        // need to another algorithm to understand
         Collections.sort(arr);
         min = arr.get(0);
         x = min;
