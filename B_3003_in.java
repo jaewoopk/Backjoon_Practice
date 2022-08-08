@@ -10,6 +10,5 @@ public class B_3003_in {
             tmp[i] = sc.nextInt();
             System.out.print(arr[i] - tmp[i]+ " ");
         }
-    
     }
 }
