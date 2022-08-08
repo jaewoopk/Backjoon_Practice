@@ -7,7 +7,7 @@ public class B_11050_comb {
 
         n = sc.nextInt();
         k = sc.nextInt();
-        System.out.println(pactorial(n) / (pactorial(k) * pactorial(n - k)));
+        System.out.println((pactorial(n) / (pactorial(k) * pactorial(n - k))));
 
     }
     public static Integer pactorial(Integer num) {
