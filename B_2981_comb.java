@@ -2,40 +2,30 @@ import java.util.*;
 
 public class B_2981_comb {
     public static void main(String[] args) {
-        Integer n, count;
-        Long min, tmp, x;
+        Integer n, g;
         Scanner sc = new Scanner(System.in);
-        ArrayList<Long> arr = new ArrayList<Long>();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
         
         n = sc.nextInt();
         for (int i = 0; i < n; i++) {
-            arr.add(sc.nextLong());
+            arr.add(sc.nextInt());
         }
-        // need to another algorithm to understand
         Collections.sort(arr);
-        min = arr.get(0);
-        x = min;
-        for (int i = 2; i < min + 1; i++) {
-            tmp = min % i;
-            count = 0;
-            for (int j = 0; j < n; j++) {
-                if (arr.get(j) % i == tmp)
-                    count++;
-                else
-                    break ;
-            }
-            if (count == n)
-            {
-                System.out.print(i+" ");
-                x = (long) i;
-            }
+        g = arr.get(1) - arr.get(0);
+
+        for (int i = 2; i < n; i++) {
+            g = gcd(g, arr.get(i) - arr.get(i - 1));
         }
-        x += min;
-        for (int i = 0; i < 100; i++) {
-            if (x > arr.get(n - 1))
-                break ;
-            System.out.print(x+" ");
-            x *= 2;
+        for (int i = 2; i <= g; i++) {
+            if (g % i == 0)
+                System.out.print(i + " ");
         }
     }
+
+    public static Integer gcd(int a, int b) {
+        if (b == 0)
+            return (a);
+        return (gcd(b, a % b));
+    }
 }
+
