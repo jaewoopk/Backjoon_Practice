@@ -2,30 +2,31 @@ import java.util.*;
 
 public class B_9375_comb {
     public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		int T = in.nextInt();
+		try (Scanner in = new Scanner(System.in)) {
+            int T = in.nextInt();
  
-		while (T-- > 0) {
-			HashMap<String, Integer> hm = new HashMap<>();
-			int N = in.nextInt();
-			
-			while (N-- > 0) {
-				in.next();	// 옷 이름은 필요 없음 
-				String kind = in.next();	// 옷 종류 
-				if (hm.containsKey(kind)) {
-					hm.put(kind, hm.get(kind) + 1);
-				} 
-				else {
-					hm.put(kind, 1);
-				}
-			}
-			int result = 1;
+            while (T-- > 0) {
+            	HashMap<String, Integer> hm = new HashMap<>();
+            	int N = in.nextInt();
+            	
+            	while (N-- > 0) {
+            		in.next();	// 옷 이름은 필요 없음 
+            		String kind = in.next();	// 옷 종류 
+            		if (hm.containsKey(kind)) {
+            			hm.put(kind, hm.get(kind) + 1);
+            		} 
+            		else {
+            			hm.put(kind, 1);
+            		}
+            	}
+            	int result = 1;
  
-			for (int val : hm.values()) {
-				result *= (val + 1);
-			}	
-			System.out.println(result - 1);		// 알몸인 상태를 제외해주어야 하므로 최종값에 -1이 정답.
-		}
+            	for (int val : hm.values()) {
+            		result *= (val + 1);
+            	}	
+            	System.out.println(result - 1);		// 알몸인 상태를 제외해주어야 하므로 최종값에 -1이 정답.
+            }
+        }
     }
     /*
     public static void main(String[] args) {
