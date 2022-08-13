@@ -26,6 +26,7 @@ public class B_9375_comb {
             	}	
             	System.out.println(result - 1);		// 알몸인 상태를 제외해주어야 하므로 최종값에 -1이 정답.
             }
+			// 한 번더 살펴볼 것
         }
     }
     /*
