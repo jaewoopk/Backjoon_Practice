@@ -15,7 +15,7 @@ result = 0
 a = []
 b = []
 c = []
-
+# 더 쉽게 푸는 법이 있을 것
 n, m = map(int, input().split())
 
 for i in range(n) :
