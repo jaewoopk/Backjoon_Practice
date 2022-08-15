@@ -8,15 +8,21 @@ public class B_2004_comb {
 
         n = sc.nextInt();
         m = sc.nextInt();
-        total1 = dismantling(n, m, arr);
+        total1 = dismantling(n, m, arr, n);
         arr[0] = 0;
         arr[1] = 0;
-        total2 = dismantling(m, m, arr);
+        total2 = dismantling(m, m, arr, n);
         System.out.println(total1 - total2);
     }
-    public static int dismantling(int num, int k, int[] arr) {
+    public static int dismantling(int num, int k, int[] arr, int t) {
         int tmp = 1;
-
+        if (num == k && k > t / 2) {
+            k = t - k;
+            num = k;
+        }
+        else if (k > t / 2)
+            k = t - k;
+        
         for (int i = num; i > (num - k); i--) {
             tmp = i;
             while (tmp > 0) {
@@ -32,7 +38,7 @@ public class B_2004_comb {
                     break ;
             }
         }
-        System.out.println("arr0 = " + arr[0] + " arr1 = "+ arr[1]);
+        //System.out.println("arr0 = " + arr[0] + " arr1 = "+ arr[1]);
         return (arr[0] > arr[1]) ? arr[1] : arr[0];
     }
 }
