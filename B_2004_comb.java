@@ -15,6 +15,7 @@ public class B_2004_comb {
         System.out.println(total1 - total2);
     }
     // 잘 쪼개서 분류해야할 것 같음 - 알고리즘에 대해 생각해보자
+    // 알고리즘에 대한 생각을 너무 깊게 하지 말 것 
     public static int dismantling(int num, int k, int[] arr, int t) {
         int tmp = 1;
         if (num == k && k > t / 2) {
