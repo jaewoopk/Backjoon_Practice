@@ -2,45 +2,57 @@ import java.util.*;
 
 public class B_2004_comb {
     public static void main(String[] args) {
-        int n,m, total1 = 1, total2 = 1;
-        int[] arr = {0, 0};
+        int n, m;
+        int[] arr = {0, 0, 0, 0};
         Scanner sc = new Scanner(System.in);
 
         n = sc.nextInt();
         m = sc.nextInt();
-        total1 = dismantling(n, m, arr, n);
-        arr[0] = 0;
-        arr[1] = 0;
-        total2 = dismantling(m, m, arr, n);
-        System.out.println(total1 - total2);
+        System.out.println(dismantling(n, m, arr, n));
     }
-    // 잘 쪼개서 분류해야할 것 같음 - 알고리즘에 대해 생각해보자
-    // 알고리즘에 대한 생각을 너무 깊게 하지 말 것 
+    
     public static int dismantling(int num, int k, int[] arr, int t) {
-        int tmp = 1;
-        if (num == k && k > t / 2) {
-            k = t - k;
-            num = k;
-        }
-        else if (k > t / 2)
+        if (k > t / 2)
             k = t - k;
         
-        for (int i = num; i > (num - k); i--) {
-            tmp = i;
-            while (tmp > 0) {
-                if (tmp % 5 == 0) {
-                    arr[0]++;
-                    tmp /= 5;
-                }
-                else if (tmp % 2 == 0) {
-                    arr[1]++;
-                    tmp /= 2;
-                }
-                else
-                    break ;
+        for (int i = 0; i < k; i++) {
+            if ((num - i) % 5 == 0) {
+                arr[0] += sharing_5(num - i);
+            }
+            else if ((num - i) % 2 == 0) {
+                arr[1] += sharing_2(num - i);
+            }
+            if ((i + 1) % 5 == 0) {
+                arr[2] += sharing_5(i + 1);
+            }
+            else if ((i + 1) % 2 == 0) {
+                arr[3] += sharing_2(i + 1);
             }
         }
-        //System.out.println("arr0 = " + arr[0] + " arr1 = "+ arr[1]);
-        return (arr[0] > arr[1]) ? arr[1] : arr[0];
+        System.out.println("arr0 = " + arr[0] + " arr1 = "+ arr[1] + "\narr2 = " + arr[2] + " arr3 = "+ arr[3]);
+        return (arr[0] - arr[2] > arr[1] - arr[3]) ? arr[1] - arr[3] : arr[0] - arr[2];
+    }
+    public static int sharing_5(int num) {
+        int t = 0;
+
+        while(num > 0) {
+            System.out.println("num = " + num);
+            if (num % 5 == 0)
+                t++;
+            num /= 5;
+        }
+        return t;
+    }
+
+    public static int sharing_2(int num) {
+        int t = 0;
+
+        while(num > 0) {
+            System.out.println("num = " + num);
+            if (num % 2 == 0)
+                t++;
+            num /= 2;
+        }
+        return t;
     }
 }
