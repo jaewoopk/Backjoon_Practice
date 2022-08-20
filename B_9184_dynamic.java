@@ -1,13 +1,19 @@
 import java.util.*;
+import java.io.*;
 
 public class B_9184_dynamic {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+
+    static int[][][] arr = new int[21][21][21];
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
         while (true) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
             int a,b,c;
-            a = sc.nextInt();
-            b = sc.nextInt();
-            c = sc.nextInt();
+            a = Integer.parseInt(st.nextToken());
+            b = Integer.parseInt(st.nextToken());
+            c = Integer.parseInt(st.nextToken());
             if (a == -1 && b == -1 && c == -1)
                 break ;
             System.out.println("w(" + a + ", " + b + ", " + c + ") = " + dynamic(a, b, c));
@@ -15,12 +21,10 @@ public class B_9184_dynamic {
     }
 
     public static int dynamic(int a, int b, int c) {
-        if (a > 20 || b > 20 || c > 20)
-            return dynamic(20, 20, 20);
-        else if (a <= 0 || b <= 0 || c <= 0)
+        if (a <= 0 || b <= 0 || c <= 0)
             return 1;
-        
-        int[][][] arr = new int[21][21][21];
+        else if (a > 20 || b > 20 || c > 20)
+            return dynamic(20, 20, 20);
 
         for (int i = 0; i < 21; i++) {
             for (int j = 0; j < 21; j++) {
