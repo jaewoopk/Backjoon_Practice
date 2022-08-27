@@ -19,20 +19,35 @@ public class B_14889_backtrack {
     public static void dfs(int m, int idx, int[] tmp, int k) {
 
         if (idx == n / 2) {
+            int t = 0;
+            int[] tmp2 = new int[m];
+            for (int i = 0; i < n; i++) {
+                boolean check = false;
+                for (int j : tmp) {
+                    if (i == j) {
+                        check = true;
+                        break ;
+                    }
+                }
+                if (!check) {
+                    tmp2[t++] = i;
+                }
+            }
             int answer = 0;
             int answer2 = 0;
             for (int i : tmp) {
                 for (int j : tmp) {
                     if (i >= j) continue;
-                    System.out.println("i = " + i + " j = " + j);
-                    System.out.println("n - i - 1 == " + (n - i - 1) + " n - j - 1 == " + (n - j - 1));
                     answer += (arr[i][j] + arr[j][i]);
-                    answer2 += (arr[n - i - 1][n - j - 1] + arr[n - j - 1][n - i - 1]);
                 }
             }
-            answer -= answer2;
-            System.out.println("answer == " + answer + " answer2 == " + answer2);
-            System.out.println("tmp 0 == " + tmp[0] + " tmp 1 == " + tmp[1] + " tmp 2 == " + tmp[2] + " tmp 3 == " + tmp[3]);
+            for (int i : tmp2) {
+                for (int j : tmp2) {
+                    if (i >= j) continue;
+                    answer2 += (arr[i][j] + arr[j][i]);
+                }
+            }
+            answer = answer - answer2;
             answer = Math.abs(answer);
             if (answer < MIN) {
                 MIN = answer;
