@@ -18,7 +18,9 @@ public class B_1912_dynamic {
             int sum = 0 ;
             for (int j = i + 1; j < n; j++) {
                 sum += arr[j];
-                if (sum > MAX) MAX = sum;
+                if (sum > MAX) {
+                    MAX = sum;
+                }
             }
         }
         System.out.println(MAX);
