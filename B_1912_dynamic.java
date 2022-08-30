@@ -4,7 +4,8 @@ import java.util.*;
 import java.io.*;
 
 public class B_1912_dynamic {
-    static int MAX = Integer.MIN_VALUE;
+    static int MAX;
+    static int MIN;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -14,15 +15,27 @@ public class B_1912_dynamic {
         st = new StringTokenizer(br.readLine());
         while(st.hasMoreTokens()) arr[i++] = Integer.parseInt(st.nextToken());
 
+        int sum = 0;
+        boolean maxcheck = false, mincheck = false;
+        MAX = arr[0];
+        MIN = arr[0];
         for (i = 0; i < n; i++) {
-            int sum = 0 ;
-            for (int j = i + 1; j < n; j++) {
-                sum += arr[j];
-                if (sum > MAX) {
-                    MAX = sum;
-                }
+            sum += arr[i];
+            if (sum > MAX) {
+                MAX = sum;
+                maxcheck = true;
+            }
+            if (sum < MIN) {
+                mincheck = true;
+                MIN = sum;
+                MAX = sum;
             }
         }
-        System.out.println(MAX);
+        if (!maxcheck) {
+            Arrays.sort(arr);
+            System.out.println(arr[n-1]);
+        }
+        else if (!mincheck) System.out.println(MAX);
+        else System.out.println(MAX - MIN);
     }
 }
