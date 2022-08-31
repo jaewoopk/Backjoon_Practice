@@ -12,30 +12,17 @@ public class B_1912_dynamic {
 
         int n = Integer.parseInt(st.nextToken()), i = 0;
         int[] arr = new int[n];
+        int[] dp = new int[n];
+
         st = new StringTokenizer(br.readLine());
         while(st.hasMoreTokens()) arr[i++] = Integer.parseInt(st.nextToken());
 
-        int sum = 0;
-        boolean maxcheck = false, mincheck = false;
+        dp[0] = arr[0];
         MAX = arr[0];
-        MIN = arr[0];
-        for (i = 0; i < n; i++) {
-            sum += arr[i];
-            if (sum > MAX) {
-                MAX = sum;
-                maxcheck = true;
-            }
-            if (sum < MIN) {
-                mincheck = true;
-                MIN = sum;
-                MAX = sum;
-            }
+        for (i = 1; i < n; i++) {
+            dp[i] = Math.max(dp[i - 1] + arr[i], arr[i]);
+            MAX = Math.max(dp[i], MAX);
         }
-        if (!maxcheck) {
-            Arrays.sort(arr);
-            System.out.println(arr[n-1]);
-        }
-        else if (!mincheck) System.out.println(MAX);
-        else System.out.println(MAX - MIN);
+        System.out.println(MAX);
     }
 }
