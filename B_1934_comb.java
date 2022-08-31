@@ -9,7 +9,6 @@ public class B_1934_comb {
         T = sc.nextInt();
         for (int i = 0; i < T; i++) {
             arr[i] = new ArrayList<Integer>();
-            arr[i].add(sc.nextInt());
             arr[i].add(sc.nextInt());   
         }
         for (int i = 0; i < T; i++) {
