@@ -18,24 +18,29 @@ public class B_2579_dynamic {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         dfs(0, 0, 0);
+        System.out.println(MAX);
     }
     public static void dfs(int sum, int idx, int count) {
-        if (idx == n) {
+        if (idx == n - 1 && count != 2) {
             MAX = Math.max(sum, MAX);
-            System.out.println(MAX);
             return ;
         }
-        if (count == 2 && idx != n) {
+        else if (idx >= n - 1) return ;
+        if (count == 2) {
             sum += arr[idx];
             idx += 2;
             count = 0;
             dfs(sum, idx, count);
             return ;
         }
-        for (int i = idx; i < idx + 1; i++) {
+        for (int i = idx; i < idx + 2; i++) {
             sum += arr[i];
-            
-
+            count++;
+            idx++;
+            dfs(sum, idx, count);
+            sum -= arr[i];
+            count--;
+            idx--;
         }
     }
 }
