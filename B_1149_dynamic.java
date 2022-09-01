@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class B_1149_dynamic {
-    static int[][] arr = new int[1000][3];
+    static int[][] arr = new int[1001][3];
     static int n;
     static int SUM = 10000000;
     public static void main(String[] args) throws IOException {
@@ -21,14 +21,12 @@ public class B_1149_dynamic {
         System.out.println(SUM);
     }
     public static void dfs(int[] del, int idx, int end, int sum) {
-        if (end == n - 1) {
+        if (end == n) {
             SUM = Integer.min(SUM, sum);
-            System.out.println(SUM);
             return ;
         }
         for (int i = 0; i < 3; i++) {
-            if (idx == i) continue;
-            System.out.println("i == " + i);
+            if (idx == i && end != 0) continue;
             end++;
             sum += del[i];
             dfs(arr[end], i, end, sum);
