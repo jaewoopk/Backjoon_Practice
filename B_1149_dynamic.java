@@ -6,7 +6,6 @@ import java.util.*;
 public class B_1149_dynamic {
     static int[][] arr = new int[1001][3];
     static int n;
-    static int SUM = 10000000;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -17,9 +16,19 @@ public class B_1149_dynamic {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < 3; j++) arr[i][j] = Integer.parseInt(st.nextToken());
         }
-        dfs(arr[0], 0, 0, 0);
+        
+        for (int i = 1; i < n; i++) {
+            arr[i][0] += Math.min(arr[i - 1][1], arr[i - 1][2]);
+            arr[i][1] += Math.min(arr[i - 1][0], arr[i - 1][2]);
+            arr[i][2] += Math.min(arr[i - 1][0], arr[i - 1][1]);
+        }
+        System.out.println(Math.min(Math.min(arr[n - 1][0], arr[n - 1][1]), arr[n - 1][2]));
+        /* dfs는 쓰일 수 없다. 시간초과가 난다.
+        dfs(arr[0], 0, 0, 0); 
         System.out.println(SUM);
+        */
     }
+    /*
     public static void dfs(int[] del, int idx, int end, int sum) {
         if (end == n) {
             SUM = Integer.min(SUM, sum);
@@ -34,4 +43,5 @@ public class B_1149_dynamic {
             end--;
         }
     }
+    */
 }
