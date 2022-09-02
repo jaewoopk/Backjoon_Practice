@@ -17,30 +17,10 @@ public class B_2579_dynamic {
             st = new StringTokenizer(br.readLine());
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        dfs(0, 0, 0);
-        System.out.println(MAX);
-    }
-    public static void dfs(int sum, int idx, int count) {
-        if (idx == n - 1 && count != 2) {
-            MAX = Math.max(sum, MAX);
-            return ;
+        for (int i = n -1; i > 1; i--) {
+            arr[n - 1] += Math.max(arr[i - 1], arr[i - 2]);
+            if (Math.max(arr[i - 1], arr[i - 2]) == arr[i - 2]) i--;
         }
-        else if (idx >= n - 1) return ;
-        if (count == 2) {
-            sum += arr[idx];
-            idx += 2;
-            count = 0;
-            dfs(sum, idx, count);
-            return ;
-        }
-        for (int i = idx; i < idx + 2; i++) {
-            sum += arr[i];
-            count++;
-            idx++;
-            dfs(sum, idx, count);
-            sum -= arr[i];
-            count--;
-            idx--;
-        }
+        System.out.println(arr[n - 1]);
     }
 }
