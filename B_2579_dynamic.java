@@ -24,6 +24,7 @@ public class B_2579_dynamic {
 
         for (int i = 3; i < n + 1; i++) {
             DP[i] = Math.max(DP[i - 2], DP[i - 3] + arr[i - 1]) + arr[i];
+            System.out.println("DP[i] = " + DP[i]);
         }
         System.out.println(DP[n]);
     }
