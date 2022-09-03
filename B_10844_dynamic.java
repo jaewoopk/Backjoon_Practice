@@ -14,6 +14,7 @@ public class B_10844_dynamic {
         n = Integer.parseInt(br.readLine());
         dfs(0);
         System.out.println(count);
+        System.out.println(5721*2 - 10982);
     }
     public static void dfs(int idx) {
         if (idx == n && correct) {
