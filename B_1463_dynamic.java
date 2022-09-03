@@ -4,31 +4,18 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class B_1463_dynamic {
+    static int[] arr = new int[1000005];
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
 
-        int count = 0;
-        while (n != 1) {
-            if (n % 3 == 0) {
-                n /= 3;
-            }
-            else if (n % 4 == 0) {
-                n /= 2;
-            }
-            else if ((n - 1) % 3 == 0) {
-                n--;
-            }
-            else if ((n - 1) % 4 == 0) {
-                n--;
-            }
-            else if (n % 2 == 0) {
-                n /= 2;
-            }
-            else n--;
-            count++;
+        arr[1] = 0;
+        for (int i = 2; i < n + 1; i++) {
+            arr[i] = arr[i - 1] + 1;
+            if (i % 2 == 0) arr[i] = Math.min(arr[i], arr[i / 2] + 1);
+            if (i % 3 == 0) arr[i] = Math.min(arr[i], arr[i / 3] + 1);
         }
-        System.out.println(count);
+        System.out.println(arr[n]);
     }    
 }
