@@ -16,6 +16,7 @@ public class B_1463_dynamic {
             if (i % 2 == 0) arr[i] = Math.min(arr[i], arr[i / 2] + 1);
             if (i % 3 == 0) arr[i] = Math.min(arr[i], arr[i / 3] + 1);
         }
+        // dfs말고 dp로 풀 생각을 할 것, 그리고 꾸준히 다시 볼 것
         System.out.println(arr[n]);
     }    
 }
