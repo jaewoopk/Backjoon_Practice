@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class B_14888_backtrack {
-    static int max = -1000000001;
+    static int max = -1000000002;
     static int min = 1000000001;
     static int[] arr;
     static int[] sign = new int[4];
