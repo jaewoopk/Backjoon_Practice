@@ -18,5 +18,6 @@ public class B_1463_dynamic {
         }
         // dfs말고 dp로 풀 생각을 할 것, 그리고 꾸준히 다시 볼 것
         System.out.println(arr[n]);
-    }    
+    }
+	// 2회차. 배열에 저장하는 식으로 푼다.
 }
