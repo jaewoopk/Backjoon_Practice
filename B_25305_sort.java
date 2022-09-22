@@ -10,7 +10,7 @@ public class B_25305_sort {
         for (int i = 0; i < n; i++) {
             list.add(sc.nextInt());
         }
-        
+        // Collections에 대해 알아볼 것
         Collections.sort(list);
         System.out.println(list.get(n - m));
     }
