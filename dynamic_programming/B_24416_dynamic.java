@@ -1,3 +1,5 @@
+package dynamic_programming;
+
 import java.util.Scanner;
 
 public class B_24416_dynamic {

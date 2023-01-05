@@ -1,3 +1,5 @@
+package dynamic_programming;
+
 import java.util.*;
 import java.io.*;
 

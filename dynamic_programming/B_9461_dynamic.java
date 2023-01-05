@@ -1,3 +1,5 @@
+package dynamic_programming;
+
 import java.util.*;
 
 public class B_9461_dynamic {
