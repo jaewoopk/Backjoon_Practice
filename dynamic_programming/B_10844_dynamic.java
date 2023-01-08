@@ -3,7 +3,6 @@ package dynamic_programming;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
 public class B_10844_dynamic {
     static final long T = 1000000000;

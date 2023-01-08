@@ -11,7 +11,7 @@ public class B_24416_dynamic {
         n = sc.nextInt();
         System.out.println(fibo(n) + " " + fibonacci(n, arr));
 
-
+        sc.close();
     }
     public static int fibo(int n) {
         if (n == 1 || n == 2)

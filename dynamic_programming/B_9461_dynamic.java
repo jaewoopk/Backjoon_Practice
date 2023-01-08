@@ -22,5 +22,6 @@ public class B_9461_dynamic {
             if (p >= 1 && p <= 10) System.out.println(arr[p - 1]);
             else System.out.println(arr2[p - 1]);
         }
+        sc.close();
     }    
 }

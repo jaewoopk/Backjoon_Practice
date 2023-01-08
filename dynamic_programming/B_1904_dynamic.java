@@ -15,6 +15,7 @@ public class B_1904_dynamic {
             arr[i] = arr[i - 1] + arr[i - 2];
             arr[i] %= 15746;
         }
-        System.out.println(arr[n - 1]);    
+        System.out.println(arr[n - 1]);
+        sc.close();
     }
 }

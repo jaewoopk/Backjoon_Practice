@@ -3,7 +3,7 @@ package dynamic_programming;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+
 
 public class B_1463_dynamic {
     static int[] arr = new int[1000005];
