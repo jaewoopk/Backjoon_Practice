@@ -17,15 +17,19 @@ public class B_24060_sort {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         merge_sort(arr, 0, n - 1);
-        for (int i = 0; i < n; i++) {
-            System.out.println("arr[" + i + "] = " + arr[i]);
-        }
         System.out.println(count);
+        for (var e : arr) {
+            System.out.print(" " + e);
+        }
     }
     static void merge_sort(int[] arr,int p, int r) {
         int q;
         count++;
-        System.out.println("count = " + count + " q = " + arr[((p + r) / 2)]);
+        System.out.println("merge sort count = " + count + " q = " + arr[((p + r) / 2)]);
+        for (var e : arr) {
+            System.out.print(" " + e);
+        }
+        System.out.println();
         if (p < r) {
             q = (p + r) / 2;
             merge_sort(arr, p, q);
@@ -39,7 +43,8 @@ public class B_24060_sort {
         int j = q + 1;
         int t = 0;
         count++;
-        System.out.println("count = " + count + " q = " + arr[((p + r) / 2)]);
+        
+        System.out.println();
         int[] tmp = new int[arr.length];
         while (i <= q && j <= r) {
             if (arr[i] <= arr[j]) {
@@ -61,5 +66,10 @@ public class B_24060_sort {
         while (i <= r) {
             arr[i++] = tmp[t++];
         }
+        System.out.println("merge count = " + count + " q = " + arr[((p + r) / 2)]);
+        for (var e : arr) {
+            System.out.print(" " + e);
+        }
+        System.out.println();
     }
 }
