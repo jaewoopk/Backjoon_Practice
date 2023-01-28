@@ -6,7 +6,6 @@ public class B_2587_sort {
         Scanner sc = new Scanner(System.in);
 
         int mean = 0;
-        int mid = 0;
         int[] arr = new int[5];
         for (int i = 0; i < 5; i++) {
             int num = sc.nextInt();
